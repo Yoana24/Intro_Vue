@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="myApp"></div>
+    <h1>Interior Plants</h1>
+    <button v-on:click="vectis">Toggle</button> <!--para usar v-on:click necesitas una funcion que ha de crearse en js-->
+    <button  @:click="anadirFrases">Add</button> <!--se le puede poner directamente un @ en vez de v-on-->
+
+
+    <!-- VAMOS A CREAR UN INPUT, COMO SI RECOGIERA DATOS DE UN FORMULARIO-->
+    
+    <input type="text"
+    placeholder="Add quote"
+    @keypress.enter="anadirFrases"
+    v-model="newMsg" 
+    >      
+    <!--key pressed dice que cuando le das a la tecla enter añade una cuota nueva-->
+    <!--v-model son los nuevos mensajes que se van añadiendo, vincula el input con la variable reactiva-->
+    <hr>
+
+    <ul>
+
+        <li v-for="{sententia, auctor}, index in sententiae"> <!--el index es que lo hace ordenado por enumeracion-->
+            {{ sententiae }}  <!--con el v-for puedes recorrer las listas con la informaicon que tienen-->
+            <blockquote v-if="autores"> {{ auctor}} </blockquote> <!--con el v-if y si en el java dices que es false, no se ve-->
+        </li>
+
+    </ul>
+
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+
+
+</body>
+</html>
