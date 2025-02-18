@@ -10,7 +10,18 @@
     <div id="myApp"></div>
     <h1>Interior Plants</h1>
     <button v-on:click="vectis">Toggle</button> <!--para usar v-on:click necesitas una funcion que ha de crearse en js-->
+    <button  @:click="anadirFrases">Add</button> <!--se le puede poner directamente un @ en vez de v-on-->
 
+
+    <!-- VAMOS A CREAR UN INPUT, COMO SI RECOGIERA DATOS DE UN FORMULARIO-->
+    
+    <input type="text"
+    placeholder="Add quote"
+    @keypress.enter="anadirFrases"
+    v-model="newMsg" 
+    >      
+    <!--key pressed dice que cuando le das a la tecla enter añade una cuota nueva-->
+    <!--v-model son los nuevos mensajes que se van añadiendo, vincula el input con la variable reactiva-->
     <hr>
 
     <ul>
